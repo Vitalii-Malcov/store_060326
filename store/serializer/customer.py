@@ -19,7 +19,7 @@ class CustomerCreateUpdateSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'last_name', 'phone_number', 'email', 'address']
 
     def validate_phone_number(self, value):
-        if re.match(r'^\+?1?\d{9,15}$', value):
+        if not re.match(r'^\+?1?\d{9,15}$', value):
             raise serializers.ValidationError('Номер должен состоять из 10-15 цифр')
         return value
 

@@ -17,9 +17,9 @@ class OrderItemCrateUpdateSerializer(serializers.ModelSerializer):
         model = OrderItem
         fields = '__all__'
 
-        def validate_quantity(self, value):
-            if value > 1000:
-                raise serializers.ValidationError("Quantity can't be more than 1000.")
-            return value
+    def validate_quantity(self, value):
+        if value > 1000:
+            raise serializers.ValidationError("Quantity can't be more than 1000.")
+        return value
 
         

@@ -106,7 +106,7 @@ class Order(models.Model):
     customer = models.ForeignKey(
         Customer, on_delete=models.CASCADE, related_name='orders', verbose_name='Клиент'
     )
-    order_date = models.DateTimeField(verbose_name='Дата заказа')
+    order_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата заказа')
 
     class Meta:
         verbose_name = 'Заказ'
